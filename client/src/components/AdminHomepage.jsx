@@ -21,8 +21,6 @@ const AdminHomePage = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleAnimationComplete = () => {
-    // called when all letters finish animating
-    // keep short for debugging or hook additional logic
     console.log('Heading animation complete');
   };
 
@@ -103,12 +101,7 @@ const AdminHomePage = () => {
               >
                 About
               </button>
-              <Link
-                to="/dashboard"
-                className="text-white/70 hover:text-white transition-all duration-300"
-              >
-                Dashboard
-              </Link>
+              
               <Link
                 to="/loginadmin"
                 className="px-6 py-2 bg-gradient-to-r from-[#d946ef] to-[#8b5cf6] text-white rounded-full font-medium hover:shadow-[0_0_20px_rgba(217,70,239,0.6)] hover:scale-105 transition-all duration-300"

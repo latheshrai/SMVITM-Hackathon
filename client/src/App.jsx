@@ -16,7 +16,7 @@ function App() {
         <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />} />
         <Route path="/loginadmin" element={<Loginadmin />} />
         <Route path="/Additems" element={<AddItemsPage />} />
-         <Route path="/dashboard" element={<Dashboard />} />
+         <Route path="admin/dashboard" element={<Dashboard />} />
         {/* 👇 home or protected page */}
         <Route path="/" element={<AdminHomepage />} />
       </Routes>

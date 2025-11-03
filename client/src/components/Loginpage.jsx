@@ -12,9 +12,37 @@ export default function KarmicCanteenLogin() {
     setIsLoaded(true);
   }, []);
 
-  const handleSubmit = () => {
-    console.log('Login submitted:', formData);
-  };
+  const handleSubmit = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/api/admins/login-admin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        password: formData.password,
+      }),
+    });
+
+    const data = await response.json();
+    console.log("Response:", data);
+
+    if (response.ok) {
+      // Save token for later authenticated requests
+      localStorage.setItem("adminToken", data.token);
+      alert("Login successful!");
+      // Redirect to admin dashboard (or any page you want)
+      window.location.href = "/admin/dashboard";
+    } else {
+      alert(data.message || "Invalid credentials");
+    }
+  } catch (error) {
+    console.error("Login error:", error);
+    alert("Something went wrong");
+  }
+};
+
 
   const handleChange = (field, value) => {
     setFormData({
