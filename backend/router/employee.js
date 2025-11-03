@@ -6,7 +6,8 @@ const {
   logoutEmployee,
   generateEmployeeQR,
   generateQRForEmployee,
-  verifyEmployeeQR
+  verifyEmployeeQR,
+  getAllEmployees,
 } = require("../controller/employee");
 const { protect } = require("../middleware/authMiddleware");
 
@@ -15,7 +16,7 @@ const router = express.Router();
 router.post("/register", registerEmployee);
 router.post("/login", loginEmployee);
 router.post("/logout", protect, logoutEmployee);
-
+router.route("/allemployees").get(getAllEmployees);
 
 router.get("/profile", protect, getEmployeeProfile);
 
